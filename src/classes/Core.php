@@ -1,4 +1,4 @@
 <?php
-class Core {
-    
+class Core
+{
 }
