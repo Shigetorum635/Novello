@@ -1,9 +1,10 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/database/Database.php';
-class Auth
+class Auth extends Database
 {
     static function auth($username, $password)
     {
+        global $database;
         session_start();
         if ($this::isAuth()) {
             return false;
