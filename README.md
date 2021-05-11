@@ -1,5 +1,5 @@
-# Novello V1
-#### Cristina.
+# Novello 
+#### Cristina Edition.
 
 Novello is a blazingly fast REST based PHP website aimed for clones. 
 
