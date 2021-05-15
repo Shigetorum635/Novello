@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Database structure thanks to Vistora team.
+ */
 class Database
 {
     public string $databaseName;
@@ -23,7 +26,7 @@ class Database
         switch ($this->ORM) {
             case "sqlite":
                 try {
-                    $this->db = new PDO('sqlite:database.sqlite');
+                    $this->db = new PDO('sqlite:database.db');
                     $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
                 } catch (PDOException $e) {
@@ -36,21 +39,49 @@ class Database
                 break;
         }
     }
-    public function query($query, $array = false)
+
+    public function getScalar($sql, $params)
     {
-        try {
-            $stmt = $this->db->prepare($query);
-            if ($array) {
-                $stmt->execute($array);
-            } else {
-                $stmt->execute();
-            }
-            if (explode(' ', $query)[0] == 'SELECT') {
-                return $stmt;
-            }
-        } catch (Exception $e) {
-            die('ERROR query(): ' . $e);
-        }
+        if ($stmt = $this->db->prepare($sql)) {
+
+            $stmt->execute($params);
+
+            return $stmt->fetchColumn();
+        } else
+            return 0;
+    }
+
+    public function getRow($sql, $params)
+    {
+        if ($stmt = $this->db->prepare($sql)) {
+
+            $stmt->execute($params);
+
+            return $stmt->fetch();
+        } else
+            return 0;
+    }
+
+    public function getSet($sql, $params)
+    {
+        if ($stmt = $this->db->prepare($sql)) {
+
+            $stmt->execute($params);
+
+            return $stmt->fetchAll();
+        } else
+            return 0;
+    }
+
+    function executeSQL($sql, $params)
+    {
+        if ($stmt = $this->db->prepare($sql)) {
+
+            $stmt->execute($params);
+
+            return $stmt->rowCount();
+        } else
+            return false;
     }
 }
 

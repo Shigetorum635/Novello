@@ -20,8 +20,5 @@ foreach ($requires as $require) {
  * not working on the post request then i realized i am a dumbass. - Carlos.
  */
 
-Routes::get('/welcome', 'API/welcome.php');
-Routes::get('/user/profile/$id', 'API/user.php');
-Routes::post('/user/something', 'API/friend.php');
-Routes::get('/', '/API/welcome.php');
-echo "hi";
+Routes::get('/', 'controllers/Other.php');
+

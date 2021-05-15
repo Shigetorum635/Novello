@@ -4,10 +4,9 @@ class Auth extends Database
 {
     static function auth($username, $password)
     {
-        global $database;
         session_start();
         if ($this::isAuth()) {
-            return false;
+            return ['error' => 'User is already authenticated', 'error' => true];
         }
     }
     static function isAuth()
@@ -17,5 +16,9 @@ class Auth extends Database
             return false;
         }
         return true;
+    }
+    private static function getDetails($username){
+        global $database;
+        $database
     }
 }
