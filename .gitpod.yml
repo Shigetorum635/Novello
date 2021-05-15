@@ -1,4 +1,19 @@
-vscode:
-  extensions:
-    - alexcvzz.vscode-sqlite@0.12.0:1159ee1f58892d78a121071408429b7a
-    - mblode.pretty-formatter@0.2.1:cd140b299a29a819a50fc4fd0e8529b1
+image:
+  file: .gitpod.dockerfile
+  context: apache
+ports:
+- port: 8080
+  onOpen: open-preview
+tasks:
+- name: Terminal
+  command: >
+    echo "";
+    echo "Commands you can try:";
+    echo " * apachectl stop";
+    echo " * apachectl start";
+    echo " * gp open /var/log/apache2/access.log";
+    echo " * gp open /var/log/apache2/error.log";
+- name: Apache
+  command: >
+    apachectl start &&
+    multitail /var/log/apache2/access.log -I /var/log/apache2/error.log
