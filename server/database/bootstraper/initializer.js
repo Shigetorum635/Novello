@@ -28,7 +28,14 @@ async function Initialize(){
     // SELECT * FROM collectibles? nah SELECT * FROM hats WHERE collectible=1;
     // Or for pending stuff
     // SELECT * FROM pending
-
+    
+    //cyclomatic was here
+    .createTable('token', (table) => {
+        table.increments('id'); //
+        table.integer('userid'); // User id
+        table.string('token'); // Generate token
+    })
+    
     .createTable('pending', (pending)=>{
         pending.increments('id');
         pending.string('name');
