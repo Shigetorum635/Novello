@@ -1,3 +1,3 @@
 FROM gitpod/workspace-full-vnc:latest
 
-RUN sudo apt-get upgrade && sudo apt-get update && wget https://packages.microsoft.com/config/ubuntu/20.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && sudo dpkg -i packages-microsoft-prod.deb && sudo apt-get update && sudo apt-get install -y apt-transport-https && sudo apt-get update && sudo apt-get install -y dotnet-sdk-5.0 && sudo apt install software-properties-common && sudo apt install php8.0-common php8.0-cli -y && sudo apt install php8.0-{bz2,curl,intl,mysql,readline,xml} && sudo apt install php8.0-pcov && sudo apt install php8.0-xdebug && sudo apt purge '^php7.4.*'
+RUN sudo apt-get update && sudo apt-get upgrade && sudo apt-get install apt-utils
