@@ -18,6 +18,9 @@ class Autoloader
                     $_SERVER['DOCUMENT_ROOT'] . '/classes/',
                     $_SERVER['DOCUMENT_ROOT'] . '/components/',
                     $_SERVER['DOCUMENT_ROOT'] . '/database/',
+                    $_SERVER['DOCUMENT_ROOT'] . '/provider/',
+
+
 
 
 
@@ -30,7 +33,8 @@ class Autoloader
                         require_once($directory . $class . '.php');
                     }
                 }
-                require_once($_SERVER['DOCUMENT_ROOT'].'/controllers/Auth.php');
+                
+                require_once($_SERVER['DOCUMENT_ROOT'].'/provider/Auth.php');
             }
 
         );

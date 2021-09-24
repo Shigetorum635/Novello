@@ -5,8 +5,7 @@ class Core
     {
         http_response_code($code);
         header('content-type: application/json');
-        header('Joe:mama');
-        header('Powered: Vistora & Polytoria');
+        header('Powered: Cristina');
         echo json_encode($arr);
     }
     static function getParams()

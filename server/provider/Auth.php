@@ -13,6 +13,7 @@ class AuthController
     }
     static function Register()
     {
+        
     }
     static function CheckAuth()
     {

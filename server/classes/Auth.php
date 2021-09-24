@@ -19,6 +19,6 @@ class Auth extends Database
     }
     private static function getDetails($username){
         global $database;
-        $database
+        
     }
 }
