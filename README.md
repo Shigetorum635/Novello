@@ -1,8 +1,7 @@
-<div style="text-align:center">
-</div>
 
 <div align="center">
   <h1> Novello </h1>
+  <img width="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/800px-PHP-logo.svg.png">
 </div>
 
 <br />
